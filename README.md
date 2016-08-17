@@ -6,7 +6,7 @@
     git clone --recursive https://github.com/NHellFire/dban.git
     ```
 
-2. Edit the variables in build.sh to match your environment if required
+2. Edit the HOST variables in build.sh to match your environment if required  
 3. Compile
     ```shell
     cd git/dropbear
@@ -16,6 +16,7 @@
     You will find the output in `git/target/<arch>`.  
     By default it is intended to be run from `/data/dropbear`, this can be changed using command line arguments.
 4. Running
+
     ```shell
     ln -s dropbearmulti dropbear
     ln -s dropbearmulti dropbearkey
@@ -29,5 +30,5 @@
 
 ### Auth
 This supports encrypted passwords using `crypt()`
-Just add `-e` to the end of your server arguments and provide a password generated with `mkpasswd -mSHA-512`
+Just add `-e` to the end of your server arguments and provide a password generated with `mkpasswd -mSHA-512`  
 Note: `-e` MUST be specified last. Somehow it's being reset otherwise.
