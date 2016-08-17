@@ -13,6 +13,8 @@
     ../build.sh <arch>
     ```
 
+    You will find the output in `git/target/<arch>`.  
+    By default it is intended to be run from `/data/dropbear`, this can be changed using command line arguments.
 4. Running
     ```shell
     ln -s dropbearmulti dropbear
@@ -22,7 +24,7 @@
     # Generate host key
     ./dropbearkey -f dropbear_rsa_host_key -t rsa -s 4096
     # Starting server
-    ./dropbear -A -N root -C <password> -U 0 -G 0 -r dropbear_rsa_host_key
+    ./dropbear -A -N root -C <password> -U 0 -G 0
     ```
 
 ### Auth
