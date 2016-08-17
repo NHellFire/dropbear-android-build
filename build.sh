@@ -1,12 +1,24 @@
 #!/bin/bash
 set -e
 
+case "$1" in
+	arm)
+		HOST=arm-linux-gnueabihf
+		;;
+	arm64)
+		HOST=aarch64-linux-gnu
+		;;
+	*)
+		echo "Usage: $0 {arm|arm64}"
+		exit 1
+esac
+
 make clean || true
 
 autoconf
 autoheader
 
- ./configure --host=aarch64-linux-gnu \
+./configure --host=${HOST} \
  --disable-largefile \
  --disable-loginfunc \
  --disable-shadow \
@@ -16,6 +28,7 @@ autoheader
  --disable-wtmpx \
  --disable-pututline \
  --disable-pututxline \
- --disable-lastlog
+ --disable-lastlog \
+ --disable-syslog
 
 make strip STATIC=1 MULTI=1 SCPPROGRESS=0 PROGRAMS="dropbear dropbearkey scp dbclient"
