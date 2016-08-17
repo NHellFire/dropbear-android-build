@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+make clean || true
+
 autoconf
 autoheader
 
