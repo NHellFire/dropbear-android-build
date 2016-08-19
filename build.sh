@@ -21,7 +21,7 @@ esac
 targetdir="../target/$arch"
 
 echo ">>>> Cleaning up target dir"
-rm -r "$targetdir"
+rm -r "$targetdir" 2> /dev/null || true
 
 echo
 
